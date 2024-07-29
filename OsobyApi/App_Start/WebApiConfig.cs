@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Web.Http;
 
 namespace OsobyApi
@@ -12,8 +10,10 @@ namespace OsobyApi
             // Web API configuration and services
 
             // Default output is json
-            config.Formatters.XmlFormatter.SupportedMediaTypes.Remove(config
-                .Formatters.XmlFormatter.SupportedMediaTypes.FirstOrDefault(t => t.MediaType == "application/xml"));
+            config.Formatters.XmlFormatter.SupportedMediaTypes
+                .Remove(config.Formatters.XmlFormatter.SupportedMediaTypes.FirstOrDefault(t => t.MediaType == "application/xml"));
+            config.Formatters.XmlFormatter.SupportedMediaTypes
+                .Remove(config.Formatters.XmlFormatter.SupportedMediaTypes.FirstOrDefault(t => t.MediaType == "text/xml"));
 
             // Web API routes
             config.MapHttpAttributeRoutes();
@@ -21,7 +21,14 @@ namespace OsobyApi
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
+                defaults: new { id = RouteParameter.Optional },
+                constraints: new { id = @"^$|^\d+$" }
+            );
+
+            config.Routes.MapHttpRoute(
+                name: "Error404",
+                routeTemplate: "{*url}",
+                defaults: new { controller = "Error", action = "Handle404" }
             );
         }
     }

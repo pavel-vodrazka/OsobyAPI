@@ -3,7 +3,6 @@ using WebActivatorEx;
 using OsobyApi;
 using Swashbuckle.Application;
 using System;
-using System.Xml.XPath;
 using System.IO;
 using System.Reflection;
 

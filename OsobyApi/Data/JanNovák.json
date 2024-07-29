@@ -1,0 +1,23 @@
+{
+  "jmeno": "Jan",
+  "prijmeni": "Novák",
+  "rodneCislo": "8501011234",
+  "datumNarozeni": "1985-01-01",
+  "narodnost": "Česká",
+  "bydliste": {
+    "ulice": "Hlavní 123",
+    "mesto": "Praha",
+    "psc": "11000",
+    "stat": "Česká republika"
+  },
+  "kontakty": [
+    {
+      "typKontaktu": "Telefon",
+      "hodnota": "+420123456789"
+    },
+    {
+      "typKontaktu": "Email",
+      "hodnota": "jan.novak@example.com"
+    }
+  ]
+}
